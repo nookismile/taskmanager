@@ -1,15 +1,13 @@
 import {createElement} from '../render.js';
 
-function createBoardTemplate() {
-  return '<section class="board container"></section>';
-}
+const createNoTaskTemplate = () => (
+  `<p class="board__no-tasks">
+    Click «ADD NEW TASK» in menu to create your first task
+  </p>`
+);
 
-export default class BoardView {
+export default class NoTaskView {
   #element = null;
-
-  get template() {
-    return createBoardTemplate();
-  }
 
   get element() {
     if (!this.#element) {
@@ -17,6 +15,10 @@ export default class BoardView {
     }
 
     return this.#element;
+  }
+
+  get template() {
+    return createNoTaskTemplate();
   }
 
   removeElement() {
